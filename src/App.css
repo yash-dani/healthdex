@@ -19,7 +19,7 @@
   position: absolute;
   width: 8%;
   height: 8%;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-left: 1%;
 }
 
@@ -44,21 +44,21 @@
 
 .Moved {
   top: 20px;
-  animation: transitUp 500ms ease-out;
+  animation: transitUp 1s cubic-bezier(0, 0, 0, 1);
 }
 
 .Conditional {
   min-width: 100px;
   min-height: 100px;
-  max-height: 90vh;
+  margin-top: 80px;
+  max-height: 85%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  overflow-y: auto;
 }
 
 .Spinner {
-  margin: 20px;
-  animation: loadIn 500ms ease-in;
+  animation: loadIn 1ms ease-out;
 }
 
 @keyframes transitUp {
