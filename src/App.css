@@ -7,6 +7,7 @@
 
 .DocumentContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -37,6 +38,26 @@
 .MainSearch:focus {
   border: 2px solid #D64952;
   outline: 0;
+}
+
+.Conditional {
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.Spinner {
+  margin: 25px;
+  animation: loadIn 1s;
+}
+
+@keyframes loadIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 body {
