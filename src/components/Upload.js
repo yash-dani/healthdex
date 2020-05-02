@@ -20,7 +20,10 @@ class Upload extends Component {
             appId: "1:62588383176:web:d61dfeb91e2ec1ee821afd",
             measurementId: "G-GW6CQ1BL7L"
         };
-        firebase.initializeApp(firebaseConfig);
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
 
         this.uploadFile = this.uploadFile.bind(this);
 
