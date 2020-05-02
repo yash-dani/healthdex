@@ -30,7 +30,7 @@ class Upload extends Component {
         const storage = firebase.storage()
 
         // async magic goes here...
-        const uploadTask = storage.ref(`/images/${this.state.selectedFile.name}`).put(this.state.selectedFile)
+        const uploadTask = storage.ref(`/files/${this.state.selectedFile.name}`).put(this.state.selectedFile)
         //initiates the firebase side uploading 
         uploadTask.on('state_changed',
             (snapShot) => {
@@ -42,11 +42,13 @@ class Upload extends Component {
             }, () => {
                 // gets the functions from storage refences the image storage in firebase by the children
                 // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                storage.ref('images').child(this.state.selectedFile.name).getDownloadURL()
+                var fileRef = storage.ref('files').child(this.state.selectedFile.name);
+                fileRef.getDownloadURL()
                     .then(fireBaseUrl => {
-                        this.setState({ imageUrl: fireBaseUrl });
                         console.log(fireBaseUrl);
-                    })
+                    });
+                var gcpUrl = 'gs://' + fileRef.bucket + '/' + fileRef.fullPath;
+                console.log(gcpUrl);
             })
     }
 
