@@ -12,6 +12,7 @@ class Upload extends Component {
         super(props);
 
         this.uploadFile = this.uploadFile.bind(this);
+        this.handleImageAsFile = this.handleImageAsFile.bind(this);
 
         this.state = {
             selectedFile: null,
@@ -47,6 +48,15 @@ class Upload extends Component {
                         this.setState({ imageUrl: fireBaseUrl });
                     })
             })
+    }
+
+    render() {
+        return (
+            <div>
+                <input type="file" name="file" onChange={this.handleImageAsFile} />
+                <button type="button" onClick={this.uploadFile}>Click Me!</button>
+            </div>
+        );
     }
 }
 
