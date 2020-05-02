@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { ReactComponent as Logo } from './assets/medical.svg'
 import { Puff } from 'svg-loaders-react';
-import firebase, { PatientRecord } from './components';
-import Upload from './components/Upload';
+import firebase, { PatientRecord, UploadPanel } from './components';
+import 'firebase/firestore';
 
 // Colors: Ivory White: FFFFF0, English Vermillion D64952, Neutral White: FFFFFF
 
@@ -14,11 +14,12 @@ export default class App extends Component {
     this.state = {
       searched: false,
       resultsPending: false,
-      data: {}
+      data: null,
+      uploading: false
     }
   }
 
-  async search(input) {
+  search(input) {
 
     this.setState({
       resultsPending: true
@@ -26,30 +27,60 @@ export default class App extends Component {
 
     console.log(`Searching for: ${input}`);
 
+    var query;
     const db = firebase.firestore();
     const patientsRef = db.collection('patients');
+
+    if (isNaN(input)) {
+      query = patientsRef.where('name', '==', input);
+    } else {
+      query = patientsRef.where('id', '==', parseInt(input));
+    }
+
+    query.get().then(querySnap => {
+      if (!querySnap.empty) {
+        this.setState({
+          data: querySnap.docs[0].data()
+        })
+      } else {
+        this.setState({
+          data: null
+        });
+      }
+      this.setState({
+        searched: true,
+        resultsPending: false
+      })
+    });
+
   }
 
   render() {
 
-    let { searched, resultsPending, data } = this.state;
-
-    let searchClass = searched ? 'MainSearch Moved' : resultsPending ? 'MainSearch Moved' : 'MainSearch';
+    let { searched, resultsPending, data, uploading } = this.state;
 
     return (
       <div className='AppContainer'>
         <Logo className='Logo' />
-        <div className='DocumentContainer'>
-          <input className={searchClass} placeholder='Search for a patient (ID No. or name)...' onKeyPress={event => {
-            if (event.key === 'Enter') {
-              this.search(event.target.value);
-            }
-          }} />
-          <div className='Conditional'>
-            {resultsPending ? <Puff className='Spinner' stroke='#D64952' /> : null}
-            {searched && !resultsPending ? <PatientRecord data={data} /> : null}
+        <button className={uploading ? 'UploadSwitch On' : 'UploadSwitch Off'} onClick={() => this.setState({ uploading: !uploading, searched: false })}>{uploading ? 'Patient Lookup' : 'Upload Records'}</button>
+        {uploading ?
+          <div className={'UploadContainer'}>
+            <UploadPanel />
           </div>
-        </div>
+          :
+          <div className='DocumentContainer'>
+            <input className={searched ? 'MainSearch Moved' : resultsPending ? 'MainSearch Moved' : 'MainSearch'} placeholder='Search for a patient (ID No. or name)...' onKeyPress={event => {
+              if (event.key === 'Enter') {
+                this.search(event.target.value);
+              }
+            }} />
+            <div className='Conditional'>
+              {resultsPending ? <Puff className='Spinner' stroke='#D64952' /> : null}
+              {searched && !resultsPending ? <PatientRecord data={data} /> : null}
+            </div>
+          </div>
+        }
+
       </div>
     );
   }

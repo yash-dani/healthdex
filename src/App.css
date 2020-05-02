@@ -19,11 +19,42 @@
   position: absolute;
   width: 8%;
   height: 8%;
-  margin-top: 2%;
-  margin-left: 1%;
+  top: 2%;
+  left: 1%;
+}
+
+.UploadSwitch {
+  border: 0px;
+  border-radius: 25px;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 100px;
+  height: 50px;
+  font-family: 'Jost', sans-serif;
+  transition: border 200ms ease-in-out;
+}
+
+.UploadSwitch:focus {
+  outline: 0px;
+}
+
+.UploadSwitch:hover {
+  border: 3px solid grey;
+}
+
+.On {
+  background-color: #D64952;
+  animation: offToOn 200ms;
+}
+
+.Off {
+  background-color: #E5E5E5;
+  animation: onToOff 200ms;
 }
 
 .MainSearch {
+  animation: fadeIn 200ms ease-in;
   position: absolute;
   top: 50%;
   border: 2px solid gray;
@@ -33,7 +64,7 @@
   padding: 20px;
   font-size: 24px;
   font-family: 'Jost', sans-serif;
-  transition: border 0.2s ease-in-out;
+  transition: border 500ms ease-in-out;
   box-sizing: border-box;
 }
 
@@ -61,6 +92,18 @@
   animation: loadIn 1ms ease-out;
 }
 
+.UploadContainer {}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
 @keyframes transitUp {
   from {
     top: 50%
@@ -78,6 +121,26 @@
 
   to {
     opacity: 1
+  }
+}
+
+@keyframes onToOff {
+  from {
+    background-color: #D64952;
+  }
+
+  to {
+    background-color: #E5E5E5;
+  }
+}
+
+@keyframes offToOn {
+  from {
+    background-color: #E5E5E5;
+  }
+
+  to {
+    background-color: #D64952;
   }
 }
 

@@ -1,7 +1,9 @@
 import Record from './Record';
+import Upload from './Upload';
 import * as firebase from "firebase/app";
 
 export const PatientRecord = Record;
+export const UploadPanel = Upload;
 
 var firebaseConfig = {
     apiKey: "AIzaSyBxWVU6SCedzeH9vUtkdQGyS_5ywyoZf94",
