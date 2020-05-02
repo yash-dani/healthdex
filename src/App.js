@@ -22,30 +22,32 @@ export default class App extends Component {
       resultsPending: true
     });
 
-    setTimeout(() => {
+    setTimeout(() => { //TEST CODE HERE
       this.setState({
         resultsPending: false,
         searched: true
       });
-    }, 3000);
+    }, 3000); //TEST CODE ENDS
   }
 
   render() {
 
     let { searched, resultsPending, data } = this.state;
 
+    let searchClass = searched ? 'MainSearch Moved' : resultsPending ? 'MainSearch Moved' : 'MainSearch';
+
     return (
       <div className='AppContainer'>
         <Logo className='Logo' />
         <div className='DocumentContainer'>
-          <input className='MainSearch' placeholder='Search for a patient (ID No. or name)...' onKeyPress={event => {
+          <input className={searchClass} placeholder='Search for a patient (ID No. or name)...' onKeyPress={event => {
             if (event.key === 'Enter') {
-              this.search();
+              this.search(); //Will have to put patient
             }
           }} />
           <div className='Conditional'>
             {resultsPending ? <Puff className='Spinner' stroke='#D64952' /> : null}
-            {searched ? <PatientRecord data={data} /> : null}
+            {searched && !resultsPending ? <PatientRecord data={data} /> : null}
           </div>
         </div>
       </div>

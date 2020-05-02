@@ -24,6 +24,8 @@
 }
 
 .MainSearch {
+  position: absolute;
+  top: 50%;
   border: 2px solid gray;
   border-radius: 25px;
   width: 65%;
@@ -40,14 +42,33 @@
   outline: 0;
 }
 
+.Moved {
+  top: 20px;
+  animation: transitUp 500ms ease-out;
+}
+
 .Conditional {
   min-width: 100px;
   min-height: 100px;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Spinner {
-  margin: 25px;
-  animation: loadIn 1s;
+  margin: 20px;
+  animation: loadIn 500ms ease-in;
+}
+
+@keyframes transitUp {
+  from {
+    top: 50%
+  }
+
+  to {
+    top: 20px
+  }
 }
 
 @keyframes loadIn {
