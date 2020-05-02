@@ -54,7 +54,7 @@ class Upload extends Component {
         return (
             <div>
                 <input type="file" name="file" onChange={this.handleImageAsFile} />
-                <button type="button" onClik={this.uploadFile}>Click Me!</button>
+                <button type="button" onClick={this.uploadFile}>Click Me!</button>
             </div>
         );
     }
