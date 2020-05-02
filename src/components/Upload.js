@@ -4,7 +4,6 @@ import firebase from './index';
 import React, { Component } from 'react';
 
 // Add the Firebase services that you want to use
-import "firebase/auth";
 import 'firebase/storage';
 
 class Upload extends Component {
@@ -46,6 +45,7 @@ class Upload extends Component {
                 storage.ref('images').child(this.state.selectedFile.name).getDownloadURL()
                     .then(fireBaseUrl => {
                         this.setState({ imageUrl: fireBaseUrl });
+                        console.log(fireBaseUrl);
                     })
             })
     }
