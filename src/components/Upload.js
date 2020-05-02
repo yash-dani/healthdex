@@ -25,18 +25,21 @@ class Upload extends Component {
         this.uploadFile = this.uploadFile.bind(this);
 
         this.state = {
-            selectedFile: null
+            selectedFile: null,
+            imageUrl: null
         }
     }
 
     handleImageAsFile(e) {
         const file = e.target.files[0];
-        this.setState({ selectedFile, file });
+        this.setState({ selectedFile: file });
     }
 
     uploadFile(e) {
         e.preventDefault()
         console.log('start of upload')
+        const storage = firebase.storage()
+
         // async magic goes here...
         const uploadTask = storage.ref(`/images/${this.state.selectedFile.name}`).put(this.state.selectedFile)
         //initiates the firebase side uploading 
@@ -52,7 +55,7 @@ class Upload extends Component {
                 // gets the download url then sets the image from firebase as the value for the imgUrl key:
                 storage.ref('images').child(this.state.selectedFile.name).getDownloadURL()
                     .then(fireBaseUrl => {
-                        setImageAsUrl(prevObject => ({ ...prevObject, imgUrl: fireBaseUrl }))
+                        this.setState({ imageUrl: fireBaseUrl });
                     })
             })
     }

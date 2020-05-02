@@ -3,6 +3,7 @@ import './App.css';
 import { ReactComponent as Logo } from './assets/medical.svg'
 import { Puff } from 'svg-loaders-react';
 import { PatientRecord } from './components';
+import Upload from './components/Upload';
 
 // Colors: Ivory White: FFFFF0, English Vermillion D64952, Neutral White: FFFFFF
 
@@ -50,6 +51,7 @@ export default class App extends Component {
             {searched && !resultsPending ? <PatientRecord data={data} /> : null}
           </div>
         </div>
+        <Upload />
       </div>
     );
   }
