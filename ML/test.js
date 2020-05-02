@@ -6,7 +6,7 @@ async function main(
    */
   const projectId = 'singular-coil-276019';
   const location = 'us'
-  const gcsInputUri = 'gs://firebasestorage.googleapis.com/v0/b/tohacks2020-8d7a9.appspot.com/o/images%2FNew_Patient_Sheet.pdf?alt=media&token=2239990e-968f-438a-bd73-1a01fa7969ea';
+  const gcsInputUri = 'gs://tohacks2020-8d7a9.appspot.com/files/New_Patient_Sheet.pdf';
 
   const {
     DocumentUnderstandingServiceClient,
