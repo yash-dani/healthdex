@@ -50,6 +50,7 @@ export default class App extends Component {
             {searched && !resultsPending ? <PatientRecord data={data} /> : null}
           </div>
         </div>
+        <Upload />
       </div>
     );
   }
