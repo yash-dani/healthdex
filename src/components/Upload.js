@@ -2,6 +2,7 @@
 // must be listed before other Firebase SDKs
 import firebase from './index';
 import React, { Component } from 'react';
+import Dropzone from 'react-dropzone';
 
 // Add the Firebase services that you want to use
 import 'firebase/storage';
@@ -54,9 +55,17 @@ class Upload extends Component {
 
     render() {
         return (
-            <div>
-                <input type="file" name="file" onChange={this.handleImageAsFile} />
-                <button type="button" onClick={this.uploadFile}>Click Me!</button>
+            <div style={{ backgroundColor: '#E5E5E5', width: '50%', height: '25%', top: '50%' }}>
+                <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+                    {({ getRootProps, getInputProps }) => (
+                        <section>
+                            <div {...getRootProps()}>
+                                <input {...getInputProps()} />
+                                <p>Drag 'n' drop some files here, or click to select files</p>
+                            </div>
+                        </section>
+                    )}
+                </Dropzone>
             </div>
         );
     }
