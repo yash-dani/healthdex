@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Jost&display=swap');
+
+.AppContainer {
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.DocumentContainer {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.Logo {
+  fill: #D64952;
+  position: absolute;
+  width: 8%;
+  height: 8%;
+  margin-top: 1%;
+  margin-left: 1%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.MainSearch {
+  border: 2px solid gray;
+  border-radius: 25px;
+  width: 65%;
+  height: 45px;
+  padding: 20px;
+  font-size: 24px;
+  font-family: 'Jost', sans-serif;
+  transition: border 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.MainSearch:focus {
+  border: 2px solid #D64952;
+  outline: 0;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
 }
