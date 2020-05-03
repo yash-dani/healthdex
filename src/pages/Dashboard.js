@@ -59,6 +59,7 @@ export default class Dashboard extends Component {
             <div className='AppContainer'>
                 <Link to='/'> <div className='Logo'><p id="logo">Healthdex<span id="highlight">.</span></p></div></Link>
                 <button className={uploading ? 'UploadSwitch On' : 'UploadSwitch Off'} onClick={() => this.setState({ uploading: !uploading, searched: false })}>{uploading ? 'Patient Lookup' : 'Upload Records'}</button>
+                <img className='Profile' src='https://www.healthmedocs.com/assets/img/doctor_profile_image.png' />
                 {uploading ?
                     <div className={'UploadContainer'}>
                         <UploadPanel />
