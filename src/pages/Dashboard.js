@@ -51,13 +51,10 @@ export default class Dashboard extends Component {
                 resultsPending: false
             })
         });
-
     }
 
     render() {
-
         let { searched, resultsPending, data, uploading } = this.state;
-
         return (
             <div className='AppContainer'>
                 <Link to='/'> <div className='Logo'><p id="logo">Healthdex<span id="highlight">.</span></p></div></Link>
