@@ -799,6 +799,7 @@ button {
   }
 
   #logo {
+    margin-top: 40px;
     font-size: 40px;
   }
 
@@ -867,15 +868,15 @@ button {
   }
 }
 
-#startLink{
+#startLink {
   color: #D64952;
 }
 
-.paddedNav{
+.paddedNav {
   margin-left: 2%;
 }
 
-#navButtons{
+#navButtons {
   margin-top: 8%;
   padding-right: 6%;
 }
