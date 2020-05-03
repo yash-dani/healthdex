@@ -762,10 +762,12 @@ button {
 
 @media (min-width: 62rem) {
   nav ul {
+	margin-top: 5px;
     justify-content: flex-end;
   }
 
   #logo {
+	padding-top: 0px;
     font-size: 1.25rem;
   }
 
