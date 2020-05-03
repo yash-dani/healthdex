@@ -2,8 +2,9 @@
 // must be listed before other Firebase SDKs
 import firebase from './index';
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import DropzoneComponent from 'react-dropzone-component';
+import './UploadPanel.css';
+import { Puff } from 'svg-loaders-react';
 
 // Add the Firebase services that you want to use
 import 'firebase/storage';
@@ -29,12 +30,13 @@ class Upload extends Component {
 
         this.componentConfig = {
             iconFiletypes: ['.pdf'],
-            showFiletypeIcon: true,
+            showFiletypeIcon: false,
             postUrl: 'no-url'
         };
 
         this.state = {
-            files: []
+            files: [],
+            uploading: false
         }
     }
 
@@ -54,14 +56,18 @@ class Upload extends Component {
     uploadFile(e) {
         e.preventDefault()
         console.log('start of upload')
-        if (this.state.files.length == 0) {
+        if (this.state.files.length === 0) {
             console.log("no files")
             return;
         }
 
+        this.setState({
+            uploading: true
+        });
+
         const storage = firebase.storage()
 
-        this.state.files.map((file) => {
+        this.state.files.forEach((file) => {
             // async magic goes here...
             const uploadTask = storage.ref(`/files/${file.name}`).put(file)
             //initiates the firebase side uploading 
@@ -84,10 +90,14 @@ class Upload extends Component {
                     console.log(gcpUrl);
                 })
         })
-        this.state.files = []
+        this.setState({
+            files: [],
+            uploading: false
+        });
     }
 
     render() {
+        let { uploading } = this.state;
         const config = this.componentConfig;
         const djsConfig = this.djsConfig;
 
@@ -98,9 +108,9 @@ class Upload extends Component {
         }
 
         return (
-            <div>
+            <div className='UploadPanel'>
                 <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig} />
-                <button type="button" onClick={this.uploadFile}>Upload!</button>
+                {uploading ? <Puff className='Spinner' stroke='#D64952' /> : <button className='UploadButton' onClick={this.uploadFile}>Upload</button>}
             </div>
         );
     }
