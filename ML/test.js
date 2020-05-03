@@ -21,7 +21,9 @@ async function main(
 
   const projectId = 'tohacks2020-8d7a9';
   const location = 'us'
+ 
   const gcsInputUri = 'gs://tohacks2020-8d7a9.appspot.com/files/test_patient.pdf';
+
 
   const {
     DocumentUnderstandingServiceClient,

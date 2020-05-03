@@ -1,0 +1,31 @@
+The Planning
+Prizes:
+Gcloud Prize
+ Best Use of Google Cloud - Use any Google Cloud product in your project (Firebase counts!) (2)
+
+Basics:
+Explain problem
+Explain what the site does (in one sentence)
+Explain integration of G Cloud
+Make sure every ÎÎshotÎÎ of the UI that you can see in the video is clear
+
+The talking
+Introduction:
+Hi! We are _____, 4 first-year software engineering students from the University of Waterloo.
+
+Problem Statement:
+Cumulatively, people on our group have spent over 300 hours volunteering at major hospitals in Ontario over the past few years. Surprisingly, a significant chunk of medical records are still recorded on paper and stored in binders. This makes accessing medical records very expensive and cumbersome. In some of the biggest hospitals in Ontario, if you need to access old patient records in less than 5 business days, it can cost over 300 dollars!
+
+Solution:
+We aim to solve this problem by 1. Providing a seamless transition from paper records to digital ones and 2. Providing a robust platform to access that information without any issues. In order to do this, we leveraged the incredible power of Google Cloud in order to create Healthdex.
+
+Demo:
+
+Landing Page
+
+Upload
+
+Search
+
+Talk more about anything you want
+

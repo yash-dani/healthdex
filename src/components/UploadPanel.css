@@ -1,0 +1,49 @@
+.UploadPanel {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    height: 20%;
+    justify-content: space-between;
+    animation: fadeIn 200ms ease-in;
+}
+
+.UploadButton {
+    border: 0px;
+    border-radius: 25px;
+    align-self: center;
+    width: 150px;
+    height: 50px;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    transition: border 200ms ease-in-out;
+    background-color: #E5E5E5;
+}
+
+.UploadButton:focus {
+    outline: 0px;
+}
+
+.UploadButton:active {
+    background-color: #D64952;
+    color: white;
+    transition: background-color 100ms ease-in-out;
+}
+
+.UploadButton:hover {
+    border: 3px solid grey;
+}
+
+.Spinner {
+    align-self: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
