@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Jost&display=swap');
+
+.AppContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.DocumentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Logo {
+  position: absolute;
+  width: 8%;
+  height: 8%;
+  left: 2%;
+}
+
+.Profile {
+  position: absolute;
+  top: 4.5%;
+  right: 1%;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+#logo {
+  color: #232323;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+#highlight {
+  color: #D64952;
+}
+
+.UploadSwitch {
+  border: 0px;
+  border-radius: 25px;
+  position: absolute;
+  right: 4%;
+  top: 4.5%;
+  width: 150px;
+  height: 50px;
+  font-family: 'Jost', sans-serif;
+  transition: border 200ms ease-in-out;
+}
+
+.UploadSwitch:focus {
+  outline: 0px;
+}
+
+.UploadSwitch:hover {
+  border: 3px solid grey;
+}
+
+.On {
+  background-color: #E5E5E5;
+  animation: offToOn 200ms;
+}
+
+.Off {
+  background-color: #D64952;
+  color: white;
+  animation: onToOff 200ms;
+}
+
+.MainSearch {
+  animation: fadeIn 200ms ease-in;
+  position: absolute;
+  top: 50%;
+  border: 2px solid gray;
+  border-radius: 25px;
+  width: 65%;
+  height: 45px;
+  padding: 20px;
+  font-size: 24px;
+  font-family: 'Jost', sans-serif;
+  transition: border 500ms ease-in-out;
+  box-sizing: border-box;
+}
+
+.MainSearch:focus {
+  border: 2px solid #D64952;
+  outline: 0;
+}
+
+.Moved {
+  top: 4.5%;
+  animation: transitUp 1s cubic-bezier(0, 0, 0, 1);
+}
+
+.Conditional {
+  min-width: 100px;
+  min-height: 100px;
+  margin-top: 80px;
+  max-height: 85%;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.Spinner {
+  animation: loadIn 1ms ease-out;
+}
+
+.UploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes transitUp {
+  from {
+    top: 50%
+  }
+
+  to {
+    top: 4.5%
+  }
+}
+
+@keyframes loadIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes onToOff {
+  from {
+    background-color: #E5E5E5;
+  }
+
+  to {
+    background-color: #D64952;
+  }
+}
+
+@keyframes offToOn {
+  from {
+    background-color: #D64952;
+  }
+
+  to {
+    background-color: #E5E5E5;
+  }
+}
+
+h1 {
+  font-family: 'Jost', sans-serif;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.Footer {
+  font-family: 'Jost', sans-serif;
+  position: absolute;
+  bottom: 10px;
+}
