@@ -61,7 +61,7 @@ export default class App extends Component {
 
     return (
       <div className='AppContainer'>
-        <Logo className='Logo' />
+        <div className='Logo'><p id="logo">Healthdex<span id="highlight">.</span></p></div>
         <button className={uploading ? 'UploadSwitch On' : 'UploadSwitch Off'} onClick={() => this.setState({ uploading: !uploading, searched: false })}>{uploading ? 'Patient Lookup' : 'Upload Records'}</button>
         {uploading ?
           <div className={'UploadContainer'}>

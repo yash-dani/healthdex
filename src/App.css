@@ -15,21 +15,32 @@
 }
 
 .Logo {
-  fill: #D64952;
   position: absolute;
   width: 8%;
   height: 8%;
   top: 2%;
-  left: 1%;
+  left: 2%;
+}
+
+#logo {
+  color: #232323;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+#highlight {
+  color: #D64952;
 }
 
 .UploadSwitch {
   border: 0px;
   border-radius: 25px;
   position: absolute;
-  right: 2%;
-  top: 2%;
-  width: 100px;
+  right: 4%;
+  top: 4%;
+  width: 150px;
   height: 50px;
   font-family: 'Jost', sans-serif;
   transition: border 200ms ease-in-out;
@@ -45,6 +56,7 @@
 
 .On {
   background-color: #D64952;
+  color: white;
   animation: offToOn 200ms;
 }
 
@@ -74,7 +86,7 @@
 }
 
 .Moved {
-  top: 20px;
+  top: 4%;
   animation: transitUp 1s cubic-bezier(0, 0, 0, 1);
 }
 
@@ -117,7 +129,7 @@
   }
 
   to {
-    top: 20px
+    top: 4%
   }
 }
 

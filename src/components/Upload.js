@@ -36,7 +36,8 @@ class Upload extends Component {
 
         this.state = {
             files: [],
-            uploading: false
+            uploading: false,
+            uploaded: false
         }
     }
 
@@ -91,13 +92,13 @@ class Upload extends Component {
                 })
         })
         this.setState({
-            files: [],
-            uploading: false
+            uploading: false,
+            uploaded: true
         });
     }
 
     render() {
-        let { uploading } = this.state;
+        let { uploading, uploaded, files } = this.state;
         const config = this.componentConfig;
         const djsConfig = this.djsConfig;
 
@@ -109,8 +110,8 @@ class Upload extends Component {
 
         return (
             <div className='UploadPanel'>
-                <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig} />
-                {uploading ? <Puff className='Spinner' stroke='#D64952' /> : <button className='UploadButton' onClick={this.uploadFile}>Upload</button>}
+                {uploaded ? <p>{`${files.length} file(s) uploaded successfully.`}</p> : <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig} />}
+                {uploading ? <Puff className='Spinner' stroke='#D64952' /> : uploaded ? null : <button className='UploadButton' onClick={this.uploadFile}>Upload</button>}
             </div>
         );
     }

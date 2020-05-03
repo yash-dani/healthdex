@@ -1,8 +1,9 @@
 .UploadPanel {
     display: flex;
     flex-direction: column;
-    min-width: 50%;
-    height: 25%;
+    text-align: center;
+    width: 50%;
+    height: 20%;
     justify-content: space-between;
     animation: fadeIn 200ms ease-in;
 }
@@ -25,6 +26,7 @@
 
 .UploadButton:active {
     background-color: #D64952;
+    color: white;
     transition: background-color 100ms ease-in-out;
 }
 
