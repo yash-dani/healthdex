@@ -4,9 +4,26 @@ async function main(
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  const projectId = 'singular-coil-276019';
+
+
+  const firebase = require("firebase");
+  // Required for side-effects
+  const firestore = require("firebase/firestore");
+
+  const admin = require('firebase-admin');
+
+  admin.initializeApp({
+  credential: admin.credential.applicationDefault()
+  });
+
+  const db = admin.firestore();
+
+
+  const projectId = 'tohacks2020-8d7a9';
   const location = 'us'
-  const gcsInputUri = 'gs://tohacks2020-8d7a9.appspot.com/files/New_Patient_Sheet.pdf';
+ 
+  const gcsInputUri = 'gs://tohacks2020-8d7a9.appspot.com/files/test_patient.pdf';
+
 
   const {
     DocumentUnderstandingServiceClient,
@@ -41,11 +58,34 @@ async function main(
       return text.substring(startIndex, endIndex);
     }
 
+    var json = '{';
+    var count = 0;
+
     for (const entity of result.entities) {
-      console.log(`\nEntity text: ${extractText(entity.textAnchor)}`);
-      console.log(`Entity type: ${entity.type}`);
-      console.log(`Entity mention text: ${entity.mentionText}`);
+
+      if (count + 1 == result.entities.length) {
+        const field = extractText(entity.textAnchor).replace(/[\u2018\u2019]/g, "'");
+        const input  = (entity.mentionText).replace(/[\u2018\u2019]/g, "'");
+        json += `"${field}":"${input}" }`;
+      } else {
+        const field = extractText(entity.textAnchor).replace(/[\u2018\u2019]/g, "'");
+        const input  = (entity.mentionText).replace(/[\u2018\u2019]/g, "'");
+        json += `"${field}":"${input}",`;
+      }
+
+      count += 1;
+
     }
+    json = json.replace(/\r?\n|\r/g, '');
+    console.log(json);
+    const jsonObj = JSON.parse(json);
+
+    const addedPatient = db.collection('records').add(jsonObj).then(ref => {
+      console.log("Added document with ID: " + ref.id);
+    });
+
+
+
   }
   // [END documentai_quickstart]
   await quickstart();
