@@ -75,7 +75,7 @@ export default class Landing extends Component {
                 <ul>
                   <li><a href="#">About</a></li>
                   <li><a href="#">Source Code</a></li>
-                  <li><b><Link class="yolo" to="/dashboard">Login</Link></b></li>
+                  <li><b><Link class="yolo" id="startLink" to="/dashboard">Get Started</Link></b></li>
                 </ul>
               </div>
             </div>
