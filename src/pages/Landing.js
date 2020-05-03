@@ -74,7 +74,7 @@ export default class Landing extends Component {
                 <a href="#" class="toggle-nav">Menu <i class="ion-navicon-round"></i></a>
                 <ul id="navButtons">
                   <li><a href="#">About</a></li>
-                  <li><a href="#">Source Code</a></li>
+                  <li><a href="https://github.com/yash-dani/healthdex">Source Code</a></li>
                   <li><b><Link class="yolo" id="startLink" to="/dashboard">Get Started</Link></b></li>
                 </ul>
               </div>

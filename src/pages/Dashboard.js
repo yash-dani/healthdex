@@ -40,7 +40,7 @@ export default class Dashboard extends Component {
             if (!querySnap.empty) {
                 this.setState({
                     data: querySnap.docs[0].data()
-                })
+                });
             } else {
                 this.setState({
                     data: null
@@ -73,7 +73,7 @@ export default class Dashboard extends Component {
                         }} />
                         <div className='Conditional'>
                             {resultsPending ? <Puff className='Spinner' stroke='#D64952' /> : null}
-                            {searched && !resultsPending ? <PatientRecord data={data} /> : null}
+                            {searched && !resultsPending ? <PatientRecord patientData={data} /> : null}
                         </div>
                     </div>
                 }

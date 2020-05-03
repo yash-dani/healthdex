@@ -1,65 +1,90 @@
 import React, { Component } from 'react';
 
 export default class Record extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: null
+        }
+    }
+
     render() {
 
-        let { data } = this.props;
+        let { patientData } = this.props;
+        let { data } = this.state;
 
-        let loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id mauris metus. Fusce pulvinar dui et lorem consequat, vel commodo dolor sagittis. Suspendisse augue diam, vulputate at augue vel, posuere tincidunt velit. Sed id magna id dui facilisis dignissim dictum et nisl. Nulla consectetur, nunc non sollicitudin viverra, augue elit ornare ligula, a feugiat tortor mauris vitae eros. Nulla vestibulum in nibh sed aliquet. In eu justo sem. Sed quis accumsan ipsum. Nulla eget varius elit, a pharetra sapien. Sed auctor ex ac nulla pretium, vitae mollis eros maximus. Nam rhoncus, enim in hendrerit eleifend, mauris eros cursus eros, id pellentesque nunc purus et mi. Donec et dolor sed ipsum consequat pharetra.
+        if (patientData && patientData.records[0]) {
 
-        Vestibulum sed quam convallis, laoreet sapien quis, viverra lectus. Sed egestas id mauris non condimentum. Nulla consectetur, metus id egestas commodo, orci sem mattis arcu, at elementum turpis ex sed erat. Duis malesuada lacinia turpis, eget pharetra risus ullamcorper eleifend. Maecenas vel faucibus erat. Aenean sed justo imperdiet, pulvinar quam sed, aliquam libero. Vivamus imperdiet imperdiet felis, ut efficitur neque lacinia ut. In lobortis ac tortor ut vehicula. Proin pulvinar arcu aliquet rhoncus vestibulum. Aenean consectetur urna enim, eget cursus dolor congue sit amet. Suspendisse at porttitor ex, ut facilisis mauris. Vivamus lobortis lectus eget quam mollis accumsan. Vestibulum quam velit, ullamcorper non ligula sed, accumsan congue ligula. Phasellus consequat libero dolor, porttitor congue justo auctor in. Nunc aliquet augue id euismod malesuada. Sed porta nunc vitae purus pulvinar, quis tempus ligula tristique.
-        
-        Ut mollis consectetur tincidunt. Maecenas venenatis ac felis ac vulputate. Aliquam tempor faucibus semper. Suspendisse iaculis lobortis augue, sit amet interdum tellus congue vitae. Pellentesque auctor nisl ut arcu lacinia ultricies. Vestibulum sodales mattis lacus id blandit. Pellentesque at laoreet sem. Vivamus imperdiet varius lorem, eu ornare nisi rhoncus et. Quisque id risus vitae libero eleifend cursus pharetra vitae nulla. Phasellus lacus nunc, placerat porta orci in, pellentesque iaculis nisi. Aenean nec placerat risus. Duis non sodales augue, sed scelerisque leo. Donec tristique elementum mauris quis malesuada. Duis viverra risus id nisi commodo, ut suscipit mauris vulputate. Aliquam volutpat odio mi, at varius elit ullamcorper sit amet. Nulla non mi pellentesque, finibus mauris at, ultrices erat.
-        
-        In et scelerisque arcu. Vivamus sed fermentum nisi. Nulla eget feugiat nibh, pharetra pretium tellus. Morbi tristique nisi vitae eros dignissim, sit amet dignissim elit pellentesque. Fusce malesuada dolor ipsum, sit amet sollicitudin ante imperdiet sed. Duis vel malesuada enim. Nam libero erat, posuere id sem et, ullamcorper ultrices ipsum. Cras finibus quam sem, ut porttitor leo faucibus in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque ut auctor orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam felis nulla, lacinia ac lobortis non, dignissim quis eros. Quisque at interdum neque. Donec cursus felis auctor egestas vehicula. Aenean iaculis auctor diam, et ornare magna feugiat quis.
-        
-        Nunc eu elit sit amet libero lacinia ultricies. In vitae lacus vulputate, finibus ex quis, porttitor dolor. Nullam in consectetur ipsum. Donec ac varius metus. Nunc ac nibh mauris. Aliquam pretium egestas arcu, eget aliquam lorem bibendum nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam vulputate nisi nisi, a condimentum sapien pulvinar in. Duis id diam nibh. Quisque et feugiat purus. Etiam at elementum tortor, a accumsan lectus. Suspendisse vitae odio ac nulla maximus eleifend ut non magna.
-        
-        Phasellus bibendum, nibh eu tempor tempus, urna enim sagittis libero, sed consectetur diam magna et neque. Donec nec ex lorem. Pellentesque non leo metus. Nam lacinia quam dui, vel ultrices neque semper eu. Aliquam vel molestie ligula. Phasellus in mi eu nisi fermentum placerat. Etiam finibus diam eu tincidunt pellentesque. Vestibulum ultrices rhoncus lorem rutrum scelerisque. Pellentesque quis semper nulla. Praesent rhoncus id arcu eget euismod. Aliquam quam risus, malesuada vel nibh vitae, tempor auctor nibh. Duis ut massa mattis, lobortis velit nec, accumsan nisl. Quisque rhoncus augue accumsan, rutrum risus vitae, rhoncus dolor. Sed id ullamcorper mauris, aliquam maximus dolor.
-        
-        Aenean auctor sollicitudin pretium. Nullam dapibus, metus id semper scelerisque, ex magna feugiat nisl, vitae lobortis augue nulla in arcu. Phasellus tempor eget mauris accumsan aliquet. Sed sapien dolor, ultrices eget auctor quis, dignissim eget ligula. Nam et orci quis metus placerat egestas. Nullam ut orci ante. Suspendisse ut dapibus orci, et sollicitudin orci. Nunc condimentum est orci, sed faucibus ex ultricies sed. Pellentesque eu ante nibh. Fusce tempor risus ligula, vitae laoreet nulla rutrum sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id mauris metus. Fusce pulvinar dui et lorem consequat, vel commodo dolor sagittis. Suspendisse augue diam, vulputate at augue vel, posuere tincidunt velit. Sed id magna id dui facilisis dignissim dictum et nisl. Nulla consectetur, nunc non sollicitudin viverra, augue elit ornare ligula, a feugiat tortor mauris vitae eros. Nulla vestibulum in nibh sed aliquet. In eu justo sem. Sed quis accumsan ipsum. Nulla eget varius elit, a pharetra sapien. Sed auctor ex ac nulla pretium, vitae mollis eros maximus. Nam rhoncus, enim in hendrerit eleifend, mauris eros cursus eros, id pellentesque nunc purus et mi. Donec et dolor sed ipsum consequat pharetra.
+            patientData.records[0].get().then(doc => {
+                this.setState({
+                    data: doc.data()
+                })
+            })
 
-Vestibulum sed quam convallis, laoreet sapien quis, viverra lectus. Sed egestas id mauris non condimentum. Nulla consectetur, metus id egestas commodo, orci sem mattis arcu, at elementum turpis ex sed erat. Duis malesuada lacinia turpis, eget pharetra risus ullamcorper eleifend. Maecenas vel faucibus erat. Aenean sed justo imperdiet, pulvinar quam sed, aliquam libero. Vivamus imperdiet imperdiet felis, ut efficitur neque lacinia ut. In lobortis ac tortor ut vehicula. Proin pulvinar arcu aliquet rhoncus vestibulum. Aenean consectetur urna enim, eget cursus dolor congue sit amet. Suspendisse at porttitor ex, ut facilisis mauris. Vivamus lobortis lectus eget quam mollis accumsan. Vestibulum quam velit, ullamcorper non ligula sed, accumsan congue ligula. Phasellus consequat libero dolor, porttitor congue justo auctor in. Nunc aliquet augue id euismod malesuada. Sed porta nunc vitae purus pulvinar, quis tempus ligula tristique.
-
-Ut mollis consectetur tincidunt. Maecenas venenatis ac felis ac vulputate. Aliquam tempor faucibus semper. Suspendisse iaculis lobortis augue, sit amet interdum tellus congue vitae. Pellentesque auctor nisl ut arcu lacinia ultricies. Vestibulum sodales mattis lacus id blandit. Pellentesque at laoreet sem. Vivamus imperdiet varius lorem, eu ornare nisi rhoncus et. Quisque id risus vitae libero eleifend cursus pharetra vitae nulla. Phasellus lacus nunc, placerat porta orci in, pellentesque iaculis nisi. Aenean nec placerat risus. Duis non sodales augue, sed scelerisque leo. Donec tristique elementum mauris quis malesuada. Duis viverra risus id nisi commodo, ut suscipit mauris vulputate. Aliquam volutpat odio mi, at varius elit ullamcorper sit amet. Nulla non mi pellentesque, finibus mauris at, ultrices erat.
-
-In et scelerisque arcu. Vivamus sed fermentum nisi. Nulla eget feugiat nibh, pharetra pretium tellus. Morbi tristique nisi vitae eros dignissim, sit amet dignissim elit pellentesque. Fusce malesuada dolor ipsum, sit amet sollicitudin ante imperdiet sed. Duis vel malesuada enim. Nam libero erat, posuere id sem et, ullamcorper ultrices ipsum. Cras finibus quam sem, ut porttitor leo faucibus in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque ut auctor orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam felis nulla, lacinia ac lobortis non, dignissim quis eros. Quisque at interdum neque. Donec cursus felis auctor egestas vehicula. Aenean iaculis auctor diam, et ornare magna feugiat quis.
-
-Nunc eu elit sit amet libero lacinia ultricies. In vitae lacus vulputate, finibus ex quis, porttitor dolor. Nullam in consectetur ipsum. Donec ac varius metus. Nunc ac nibh mauris. Aliquam pretium egestas arcu, eget aliquam lorem bibendum nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam vulputate nisi nisi, a condimentum sapien pulvinar in. Duis id diam nibh. Quisque et feugiat purus. Etiam at elementum tortor, a accumsan lectus. Suspendisse vitae odio ac nulla maximus eleifend ut non magna.
-
-Phasellus bibendum, nibh eu tempor tempus, urna enim sagittis libero, sed consectetur diam magna et neque. Donec nec ex lorem. Pellentesque non leo metus. Nam lacinia quam dui, vel ultrices neque semper eu. Aliquam vel molestie ligula. Phasellus in mi eu nisi fermentum placerat. Etiam finibus diam eu tincidunt pellentesque. Vestibulum ultrices rhoncus lorem rutrum scelerisque. Pellentesque quis semper nulla. Praesent rhoncus id arcu eget euismod. Aliquam quam risus, malesuada vel nibh vitae, tempor auctor nibh. Duis ut massa mattis, lobortis velit nec, accumsan nisl. Quisque rhoncus augue accumsan, rutrum risus vitae, rhoncus dolor. Sed id ullamcorper mauris, aliquam maximus dolor.
-
-Aenean auctor sollicitudin pretium. Nullam dapibus, metus id semper scelerisque, ex magna feugiat nisl, vitae lobortis augue nulla in arcu. Phasellus tempor eget mauris accumsan aliquet. Sed sapien dolor, ultrices eget auctor quis, dignissim eget ligula. Nam et orci quis metus placerat egestas. Nullam ut orci ante. Suspendisse ut dapibus orci, et sollicitudin orci. Nunc condimentum est orci, sed faucibus ex ultricies sed. Pellentesque eu ante nibh. Fusce tempor risus ligula, vitae laoreet nulla rutrum sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id mauris metus. Fusce pulvinar dui et lorem consequat, vel commodo dolor sagittis. Suspendisse augue diam, vulputate at augue vel, posuere tincidunt velit. Sed id magna id dui facilisis dignissim dictum et nisl. Nulla consectetur, nunc non sollicitudin viverra, augue elit ornare ligula, a feugiat tortor mauris vitae eros. Nulla vestibulum in nibh sed aliquet. In eu justo sem. Sed quis accumsan ipsum. Nulla eget varius elit, a pharetra sapien. Sed auctor ex ac nulla pretium, vitae mollis eros maximus. Nam rhoncus, enim in hendrerit eleifend, mauris eros cursus eros, id pellentesque nunc purus et mi. Donec et dolor sed ipsum consequat pharetra.
-
-Vestibulum sed quam convallis, laoreet sapien quis, viverra lectus. Sed egestas id mauris non condimentum. Nulla consectetur, metus id egestas commodo, orci sem mattis arcu, at elementum turpis ex sed erat. Duis malesuada lacinia turpis, eget pharetra risus ullamcorper eleifend. Maecenas vel faucibus erat. Aenean sed justo imperdiet, pulvinar quam sed, aliquam libero. Vivamus imperdiet imperdiet felis, ut efficitur neque lacinia ut. In lobortis ac tortor ut vehicula. Proin pulvinar arcu aliquet rhoncus vestibulum. Aenean consectetur urna enim, eget cursus dolor congue sit amet. Suspendisse at porttitor ex, ut facilisis mauris. Vivamus lobortis lectus eget quam mollis accumsan. Vestibulum quam velit, ullamcorper non ligula sed, accumsan congue ligula. Phasellus consequat libero dolor, porttitor congue justo auctor in. Nunc aliquet augue id euismod malesuada. Sed porta nunc vitae purus pulvinar, quis tempus ligula tristique.
-
-Ut mollis consectetur tincidunt. Maecenas venenatis ac felis ac vulputate. Aliquam tempor faucibus semper. Suspendisse iaculis lobortis augue, sit amet interdum tellus congue vitae. Pellentesque auctor nisl ut arcu lacinia ultricies. Vestibulum sodales mattis lacus id blandit. Pellentesque at laoreet sem. Vivamus imperdiet varius lorem, eu ornare nisi rhoncus et. Quisque id risus vitae libero eleifend cursus pharetra vitae nulla. Phasellus lacus nunc, placerat porta orci in, pellentesque iaculis nisi. Aenean nec placerat risus. Duis non sodales augue, sed scelerisque leo. Donec tristique elementum mauris quis malesuada. Duis viverra risus id nisi commodo, ut suscipit mauris vulputate. Aliquam volutpat odio mi, at varius elit ullamcorper sit amet. Nulla non mi pellentesque, finibus mauris at, ultrices erat.
-
-In et scelerisque arcu. Vivamus sed fermentum nisi. Nulla eget feugiat nibh, pharetra pretium tellus. Morbi tristique nisi vitae eros dignissim, sit amet dignissim elit pellentesque. Fusce malesuada dolor ipsum, sit amet sollicitudin ante imperdiet sed. Duis vel malesuada enim. Nam libero erat, posuere id sem et, ullamcorper ultrices ipsum. Cras finibus quam sem, ut porttitor leo faucibus in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque ut auctor orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam felis nulla, lacinia ac lobortis non, dignissim quis eros. Quisque at interdum neque. Donec cursus felis auctor egestas vehicula. Aenean iaculis auctor diam, et ornare magna feugiat quis.
-
-Nunc eu elit sit amet libero lacinia ultricies. In vitae lacus vulputate, finibus ex quis, porttitor dolor. Nullam in consectetur ipsum. Donec ac varius metus. Nunc ac nibh mauris. Aliquam pretium egestas arcu, eget aliquam lorem bibendum nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam vulputate nisi nisi, a condimentum sapien pulvinar in. Duis id diam nibh. Quisque et feugiat purus. Etiam at elementum tortor, a accumsan lectus. Suspendisse vitae odio ac nulla maximus eleifend ut non magna.
-
-Phasellus bibendum, nibh eu tempor tempus, urna enim sagittis libero, sed consectetur diam magna et neque. Donec nec ex lorem. Pellentesque non leo metus. Nam lacinia quam dui, vel ultrices neque semper eu. Aliquam vel molestie ligula. Phasellus in mi eu nisi fermentum placerat. Etiam finibus diam eu tincidunt pellentesque. Vestibulum ultrices rhoncus lorem rutrum scelerisque. Pellentesque quis semper nulla. Praesent rhoncus id arcu eget euismod. Aliquam quam risus, malesuada vel nibh vitae, tempor auctor nibh. Duis ut massa mattis, lobortis velit nec, accumsan nisl. Quisque rhoncus augue accumsan, rutrum risus vitae, rhoncus dolor. Sed id ullamcorper mauris, aliquam maximus dolor.
-
-Aenean auctor sollicitudin pretium. Nullam dapibus, metus id semper scelerisque, ex magna feugiat nisl, vitae lobortis augue nulla in arcu. Phasellus tempor eget mauris accumsan aliquet. Sed sapien dolor, ultrices eget auctor quis, dignissim eget ligula. Nam et orci quis metus placerat egestas. Nullam ut orci ante. Suspendisse ut dapibus orci, et sollicitudin orci. Nunc condimentum est orci, sed faucibus ex ultricies sed. Pellentesque eu ante nibh. Fusce tempor risus ligula, vitae laoreet nulla rutrum sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`;
-
-        if (data) {
-            return (
-                <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
-                    <p style={{ fontSize: '10px', borderRadius: '50px', width: '45px', paddingLeft: '5px', marginBottom: '2px', border: '2px solid grey', color: 'grey' }}>Patient</p>
-                    <h1>{`${data.name} - ID ${data.id}`}</h1>
-                    <div style={{ border: 'solid', borderColor: '#D64952', borderLeft: '0', borderRight: '0', borderBottom: '0', paddingTop: '20px' }}>
-                        <h3>Date</h3>
-                        <p></p>
-                        <h3>Insurance Number</h3>
-                        <p></p>
-                        <h3>Details</h3>
-                        <p>{loremIpsum}</p>
+            if (data) {
+                return (
+                    <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
+                        <p style={{ fontSize: '10px', borderRadius: '50px', width: '45px', paddingLeft: '5px', marginBottom: '2px', border: '2px solid grey', color: 'grey' }}>Patient</p>
+                        <h1>{`${patientData.name} - ID ${patientData.id}`}</h1>
+                        <div style={{ border: 'solid', borderColor: '#D64952', borderLeft: '0', borderRight: '0', borderBottom: '0', paddingTop: '20px' }}>
+                            <h3>Date of Consultation</h3>
+                            <p>{data.consultDate}</p>
+                            <h3>Name of Doctor</h3>
+                            <p>{data.docName}</p>
+                            <h3>Referred by</h3>
+                            <p>{data.referredBy}</p>
+                            <h3>Details</h3>
+                            <p>{data.details}</p>
+                            <h3>Address</h3>
+                            <p>{data.address}</p>
+                            <h3>City</h3>
+                            <p>{data.city}</p>
+                            <h3>State/Province</h3>
+                            <p>{data.state}</p>
+                            <h3>ZIP Code</h3>
+                            <p>{data.zip}</p>
+                            <h3>Phone</h3>
+                            <p>{data.mobile}</p>
+                            <h3>Email</h3>
+                            <a href={`mailto:${data.email}`}>{data.email}</a>
+                            <h3>Notes & Comments</h3>
+                            <p>{data.notes}</p>
+                            <h2>Insurance Details</h2>
+                            <h3>Insurer Name</h3>
+                            <p>{data.insurance.name}</p>
+                            <h3>Relationship</h3>
+                            <p>{data.insurance.relationship}</p>
+                            <h3>Employer</h3>
+                            <p>{data.insurance.employer}</p>
+                            <h3>Address</h3>
+                            <p>{data.insurance.address}</p>
+                            <h3>City</h3>
+                            <p>{data.insurance.city}</p>
+                            <h3>State/Province</h3>
+                            <p>{data.insurance.state}</p>
+                            <h3>Zip Code</h3>
+                            <p>{data.insurance.zip}</p>
+                            <h3>Date of Birth</h3>
+                            <p>{data.insurance.dob}</p>
+                            <h3>Insured Since</h3>
+                            <p>{data.insurance.since}</p>
+                            <h3>Phone</h3>
+                            <p>{data.insurance.phone}</p>
+                            <h3>Supervisor</h3>
+                            <p>{data.insurance.supervisor}</p>
+                        </div>
                     </div>
-                </div>
-            );
+                );
+            } else {
+                return (
+                    <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
+                        <p style={{ fontSize: '10px', borderRadius: '50px', width: '45px', paddingLeft: '5px', marginBottom: '2px', border: '2px solid grey', color: 'grey' }}>Patient</p>
+                        <h1>{`${patientData.name} - ID ${patientData.id}`}</h1>
+                    </div>
+                );
+            }
         } else {
             return (
                 <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
