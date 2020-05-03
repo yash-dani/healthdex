@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { ReactComponent as Logo } from './assets/medical.svg'
 import { Puff } from 'svg-loaders-react';
 import firebase, { PatientRecord, UploadPanel } from './components';
 import 'firebase/firestore';

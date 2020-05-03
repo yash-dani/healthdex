@@ -45,19 +45,28 @@ Phasellus bibendum, nibh eu tempor tempus, urna enim sagittis libero, sed consec
 
 Aenean auctor sollicitudin pretium. Nullam dapibus, metus id semper scelerisque, ex magna feugiat nisl, vitae lobortis augue nulla in arcu. Phasellus tempor eget mauris accumsan aliquet. Sed sapien dolor, ultrices eget auctor quis, dignissim eget ligula. Nam et orci quis metus placerat egestas. Nullam ut orci ante. Suspendisse ut dapibus orci, et sollicitudin orci. Nunc condimentum est orci, sed faucibus ex ultricies sed. Pellentesque eu ante nibh. Fusce tempor risus ligula, vitae laoreet nulla rutrum sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.`;
 
-        return (
-            <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
-                <p style={{ fontSize: '10px', borderRadius: '50px', width: '33px', paddingLeft: '5px', marginBottom: '2px', border: '2px solid grey', color: 'grey' }}>Patient</p>
-                <h1>{`${data.name} - ID ${data.id}`}</h1>
-                <div style={{ border: 'solid', borderColor: '#D64952', borderLeft: '0', borderRight: '0', borderBottom: '0', paddingTop: '20px' }}>
-                    <h3>Date</h3>
-                    <p></p>
-                    <h3>Insurance Number</h3>
-                    <p></p>
-                    <h3>Details</h3>
-                    <p>{loremIpsum}</p>
+        if (data) {
+            return (
+                <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
+                    <p style={{ fontSize: '10px', borderRadius: '50px', width: '33px', paddingLeft: '5px', marginBottom: '2px', border: '2px solid grey', color: 'grey' }}>Patient</p>
+                    <h1>{`${data.name} - ID ${data.id}`}</h1>
+                    <div style={{ border: 'solid', borderColor: '#D64952', borderLeft: '0', borderRight: '0', borderBottom: '0', paddingTop: '20px' }}>
+                        <h3>Date</h3>
+                        <p></p>
+                        <h3>Insurance Number</h3>
+                        <p></p>
+                        <h3>Details</h3>
+                        <p>{loremIpsum}</p>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
+                    <h1>{'No patients found.'}</h1>
+                </div>
+            );
+        }
+
     }
 }
