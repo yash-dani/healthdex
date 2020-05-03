@@ -166,3 +166,10 @@
 body {
   font-family: 'Jost', sans-serif;
 }
+
+h1 {
+  font-family: 'Jost', sans-serif;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
