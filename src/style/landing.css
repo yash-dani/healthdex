@@ -576,7 +576,6 @@ a:hover {
 nav {
   position: relative;
   z-index: 2;
-  padding: 1.25rem 0 1.25rem 0;
 }
 
 nav ul {
@@ -851,10 +850,6 @@ button {
     justify-content: flex-end;
   }
 
-  nav {
-    padding: 1.75rem 0 1.75rem 0;
-  }
-
   nav ul {
     line-height: 2.2;
     display: flex;
@@ -874,4 +869,13 @@ button {
 
 #startLink{
   color: #D64952;
+}
+
+.paddedNav{
+  margin-left: 2%;
+}
+
+#navButtons{
+  margin-top: 8%;
+  padding-right: 6%;
 }

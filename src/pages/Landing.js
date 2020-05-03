@@ -65,14 +65,14 @@ export default class Landing extends Component {
     return (
       <div>
         <nav class="flex-nav">
-          <div class="container">
+          <div class="paddedNav">
             <div class="grid">
               <div class="column-xs-9 column-md-8">
                 <p id="logo">Healthdex<span id="highlight">.</span></p>
               </div>
               <div class="column-xs-3 column-md-4">
                 <a href="#" class="toggle-nav">Menu <i class="ion-navicon-round"></i></a>
-                <ul>
+                <ul id="navButtons">
                   <li><a href="#">About</a></li>
                   <li><a href="#">Source Code</a></li>
                   <li><b><Link class="yolo" id="startLink" to="/dashboard">Get Started</Link></b></li>
