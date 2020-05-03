@@ -41,7 +41,7 @@
   border-radius: 25px;
   position: absolute;
   right: 4%;
-  top: 4%;
+  top: 4.5%;
   width: 150px;
   height: 50px;
   font-family: 'Jost', sans-serif;
@@ -57,13 +57,13 @@
 }
 
 .On {
-  background-color: #D64952;
-  color: white;
+  background-color: #E5E5E5;
   animation: offToOn 200ms;
 }
 
 .Off {
-  background-color: #E5E5E5;
+  background-color: #D64952;
+  color: white;
   animation: onToOff 200ms;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .Moved {
-  top: 4%;
+  top: 4.5%;
   animation: transitUp 1s cubic-bezier(0, 0, 0, 1);
 }
 
@@ -131,7 +131,7 @@
   }
 
   to {
-    top: 4%
+    top: 4.5%
   }
 }
 
@@ -147,21 +147,21 @@
 
 @keyframes onToOff {
   from {
-    background-color: #D64952;
+    background-color: #E5E5E5;
   }
 
   to {
-    background-color: #E5E5E5;
+    background-color: #D64952;
   }
 }
 
 @keyframes offToOn {
   from {
-    background-color: #E5E5E5;
+    background-color: #D64952;
   }
 
   to {
-    background-color: #D64952;
+    background-color: #E5E5E5;
   }
 }
 
@@ -173,6 +173,7 @@ h1 {
 }
 
 .Footer {
+  font-family: 'Jost', sans-serif;
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
 }

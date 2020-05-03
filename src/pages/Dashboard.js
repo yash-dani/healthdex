@@ -79,7 +79,7 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                 }
-                <div className='Footer'>Footer</div>
+                <span role='img' className='Footer'>Made with ❤️ for TOHacks 2020</span>
             </div>
         );
     }
