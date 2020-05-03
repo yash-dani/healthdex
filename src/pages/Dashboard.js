@@ -79,7 +79,7 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                 }
-
+                <div className='Footer'>Footer</div>
             </div>
         );
     }

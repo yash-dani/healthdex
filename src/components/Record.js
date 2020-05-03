@@ -48,7 +48,7 @@ Aenean auctor sollicitudin pretium. Nullam dapibus, metus id semper scelerisque,
         if (data) {
             return (
                 <div style={{ width: '80vw', display: 'flex', flexDirection: 'column' }}>
-                    <p style={{ fontSize: '10px', borderRadius: '50px', width: '33px', paddingLeft: '5px', marginBottom: '2px', border: '2px solid grey', color: 'grey' }}>Patient</p>
+                    <p style={{ fontSize: '10px', borderRadius: '50px', width: '45px', paddingLeft: '5px', marginBottom: '2px', border: '2px solid grey', color: 'grey' }}>Patient</p>
                     <h1>{`${data.name} - ID ${data.id}`}</h1>
                     <div style={{ border: 'solid', borderColor: '#D64952', borderLeft: '0', borderRight: '0', borderBottom: '0', paddingTop: '20px' }}>
                         <h3>Date</h3>
