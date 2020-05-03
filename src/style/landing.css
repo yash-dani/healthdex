@@ -1,6 +1,7 @@
 /* 12columns.css | Created by Katherine Kato | Released under the MIT license */
 /* GitHub: https://kathykato.github.io/12columns/ */
 @import url("https://fonts.googleapis.com/css?family=Barlow:400,500,700");
+
 .container {
   margin: auto;
   padding: 0 1rem;
@@ -13,7 +14,8 @@
   flex-direction: column;
   flex-flow: row wrap;
 }
-.grid > [class*="column-"] {
+
+.grid>[class*="column-"] {
   display: block;
 }
 
@@ -158,6 +160,7 @@
     max-width: 100%;
   }
 }
+
 @media (min-width: 62rem) {
   .column-md-1 {
     flex-basis: 8.3333333333%;
@@ -219,6 +222,7 @@
     max-width: 100%;
   }
 }
+
 @media (min-width: 75rem) {
   .column-lg-1 {
     flex-basis: 8.3333333333%;
@@ -280,13 +284,15 @@
     max-width: 100%;
   }
 }
+
 @supports (display: grid) {
   .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
   }
-  .grid > [class*="column-"] {
+
+  .grid>[class*="column-"] {
     margin: 0;
     max-width: 100%;
   }
@@ -412,6 +418,7 @@
       grid-column-end: span 12;
     }
   }
+
   @media (min-width: 62rem) {
     .column-md-1 {
       grid-column-start: span 1;
@@ -473,6 +480,7 @@
       grid-column-end: span 12;
     }
   }
+
   @media (min-width: 75rem) {
     .column-lg-1 {
       grid-column-start: span 1;
@@ -535,10 +543,13 @@
     }
   }
 }
+
 * {
   box-sizing: border-box;
 }
-*::before, *::after {
+
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -557,6 +568,7 @@ a {
   color: #8d8d8d;
   text-decoration: none;
 }
+
 a:hover {
   color: #232323;
 }
@@ -566,11 +578,13 @@ nav {
   z-index: 2;
   padding: 1.25rem 0 1.25rem 0;
 }
+
 nav ul {
   line-height: 2.2;
   display: flex;
   justify-content: flex-start;
 }
+
 nav ul li {
   margin: 0.325rem 0;
 }
@@ -578,7 +592,7 @@ nav ul li {
 #logo {
   color: #232323;
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 40px;
 }
 
 #highlight {
@@ -603,6 +617,7 @@ img {
   opacity: 0;
   animation: fadeIn 0.8s 0.4s ease forwards;
 }
+
 .intro .title {
   display: inline-block;
   font-size: 2rem;
@@ -611,6 +626,7 @@ img {
   text-decoration: underline;
   color: #e83f43;
 }
+
 .intro .title .underline {
   color: #232323;
 }
@@ -627,12 +643,15 @@ img {
 .slider-item {
   display: none;
 }
+
 .slider-item.active {
   display: block;
 }
+
 .slider-item.active .hide-mobile {
   display: none;
 }
+
 .slider-item.active .show-mobile {
   display: block;
   margin: 1rem 0;
@@ -661,22 +680,27 @@ button {
   justify-content: flex-end;
   padding: 0.25rem 0 0.25rem 0;
 }
+
 .controls .previous {
   border: 1px solid #232323;
 }
+
 .controls .previous:hover i {
   transform: scale(1.5);
 }
+
 .controls .next {
   border-top: 1px solid #232323;
   border-right: 1px solid #232323;
   border-bottom: 1px solid #232323;
 }
+
 .controls .next:hover i {
   transform: scale(1.5);
 }
 
-.previous, .next {
+.previous,
+.next {
   display: flex;
   align-content: center;
   justify-content: center;
@@ -684,7 +708,9 @@ button {
   font-size: 2rem;
   color: #232323;
 }
-.previous i, .next i {
+
+.previous i,
+.next i {
   transition: all 0.1s ease;
 }
 
@@ -706,34 +732,41 @@ button {
   0% {
     transform: scaleX(1);
   }
+
   100% {
     transform: scaleX(0);
   }
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
     transform: translateX(20%);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
+
 .toggle-nav {
   display: flex;
   justify-content: flex-end;
   font-size: 1rem;
   line-height: 1.9;
 }
+
 .toggle-nav i {
   font-size: 1.5rem;
   line-height: 1.3;
@@ -756,6 +789,7 @@ button {
   background: #fff;
   text-align: center;
 }
+
 .flex-nav ul.active {
   display: flex;
 }
@@ -766,7 +800,7 @@ button {
   }
 
   #logo {
-    font-size: 1.25rem;
+    font-size: 40px;
   }
 
   .controls {
@@ -776,6 +810,7 @@ button {
   .intro {
     animation: fadeInLeft 0.8s 0.4s ease forwards;
   }
+
   .intro .title {
     font-size: 4.25rem;
     padding: 2.5rem 2.5rem 3rem 2.5rem;
@@ -791,7 +826,8 @@ button {
     margin: 1rem 0 0 0;
   }
 
-  .previous, .next {
+  .previous,
+  .next {
     flex-basis: 8.33%;
   }
 
@@ -818,16 +854,19 @@ button {
   nav {
     padding: 1.75rem 0 1.75rem 0;
   }
+
   nav ul {
     line-height: 2.2;
     display: flex;
     justify-content: flex-start;
   }
+
   nav ul li {
     font-size: 1rem;
     text-transform: uppercase;
     margin: 0 2rem 0 0;
   }
+
   nav ul li:nth-child(3) {
     margin: 0;
   }

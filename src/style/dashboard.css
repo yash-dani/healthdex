@@ -3,6 +3,8 @@
 .AppContainer {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .DocumentContainer {
@@ -163,6 +165,14 @@
   }
 }
 
-body {
+h1 {
   font-family: 'Jost', sans-serif;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.Footer {
+  position: absolute;
+  bottom: 5px;
 }
